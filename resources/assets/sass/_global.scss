@@ -1,0 +1,51 @@
+
+// Structural Elements
+body {
+  background-color: #e0e0e0;
+}
+
+#auth-bar {
+  background-color:#f0f0f0;
+  margin-bottom:30px;
+  padding:15px 0;
+  border-bottom: 1px solid #aaa;
+}
+
+.content-box {
+  background-color: #fff;
+  border: 1px solid #aaa;
+}
+
+// Individual Elements
+
+.form-group.required .control-label:after {
+  content:"*";
+  color:red;
+}
+
+.btn {
+  text-transform:uppercase;
+  font-weight:bold;
+}
+
+.btn[type=submit]:after,.btn.arrow:after {
+  content:" >";
+}
+
+.alert.flash {
+  margin-bottom:0;
+}
+
+.profile-image-circle {
+  background-size:cover;
+  background-position:center;
+  height:50px;
+  width:50px;
+  border-radius:25px;
+
+  @media (min-width:768px) {
+    height:80px;
+    width:80px;
+    border-radius:40px;
+  }
+}

@@ -1,0 +1,36 @@
+
+$comment-bg:#eee;
+.comment {
+  margin-bottom:30px;
+}
+
+.comment-body {
+  background-color: $comment-bg;
+  position: relative;
+  min-height:60px;
+  padding-top:5px;
+
+  .arrow {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right:10px solid $comment-bg;
+    position:absolute;
+    left:-10px;
+    top:15px;
+  }
+}
+
+.comment-heading {
+  font-weight:bold;
+}
+
+.comment-date {
+  font-weight:bold;
+  font-size:11px;
+}
+
+.comment-content {
+  margin-top:10px;
+}
