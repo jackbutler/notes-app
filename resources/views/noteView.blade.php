@@ -73,6 +73,7 @@
                         </form>
                     </div>
                 </div>
+                <hr>
                 <div class="comments">
                     @foreach ($note->comments as $comment)
                         {!! $comment->generateHtml() !!}
