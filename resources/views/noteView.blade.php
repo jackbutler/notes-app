@@ -6,8 +6,7 @@
     <script type="text/javascript">
 
         function deleteNote() {
-            var r= confirm("Are you sure you want to delete this note? This cannot be undone");
-
+            var r = confirm("Are you sure you want to delete this note? This cannot be undone");
             if(r == true) {
                 window.location.href = "{{ url("notes/{$note->id}/delete") }}";
             }
@@ -52,8 +51,9 @@
                         <a class="btn btn-default" href="{{ url("/") }}">&lt; Back to Overview</a>
                     </div>
                     <div class="col-xs-12 col-sm-6 text-right form-group">
+                        {{-- Show delete button if the current user is the note author --}}
                         @if($note->user_id == \Auth::user()->id)
-                        <button class="btn btn-danger" onclick="deleteNote()">Delete Note</button>
+                            <button class="btn btn-danger" onclick="deleteNote()">Delete Note</button>
                         @endif
                         <button class="btn btn-primary" data-toggle="collapse" data-target="#commentForm" >Add Additional Note</button>
                     </div>
