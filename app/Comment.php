@@ -38,7 +38,7 @@ class Comment extends Model
             return "Yesterday at ".$this->created_at->format("H:i");
         }
         else {
-            return $commentDate->format("d/m/y \\a\\t H:i");
+            return $this->created_at->format("d/m/y \\a\\t H:i");
         }
     }
 
