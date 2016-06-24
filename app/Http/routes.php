@@ -18,6 +18,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/notes/add', "NotesController@createNote");
     Route::get('/notes/{note_id}', "NotesController@viewNote");
     Route::post('/notes/{note_id}/comments', "NotesController@postComment");
+    Route::get('/notes/{note_id}/delete', "NotesController@deleteNote");
 
     Route::get('/profile', "UserController@getMyProfile");
     Route::post('/profile/picture', "UserController@updateProfilePicture");

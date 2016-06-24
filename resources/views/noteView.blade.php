@@ -5,6 +5,14 @@
 @section("head_extras")
     <script type="text/javascript">
 
+        function deleteNote() {
+            var r= confirm("Are you sure you want to delete this note? This cannot be undone");
+
+            if(r == true) {
+                window.location.href = "{{ url("notes/{$note->id}/delete") }}";
+            }
+        }
+
         $(document).ready(function(){
             // Bind the AJAX submission to the Post Comment submit button
             $('#add_comment_submit').click(function(){
@@ -40,10 +48,13 @@
                     {!! $note->content !!}
                 </div>
                 <div class="row">
-                    <div class="col-xs-6 form-group">
+                    <div class="col-xs-12 col-sm-6 form-group">
                         <a class="btn btn-default" href="{{ url("/") }}">&lt; Back to Overview</a>
                     </div>
-                    <div class="col-xs-6 text-right form-group">
+                    <div class="col-xs-12 col-sm-6 text-right form-group">
+                        @if($note->user_id == \Auth::user()->id)
+                        <button class="btn btn-danger" onclick="deleteNote()">Delete Note</button>
+                        @endif
                         <button class="btn btn-primary" data-toggle="collapse" data-target="#commentForm" >Add Additional Note</button>
                     </div>
                 </div>

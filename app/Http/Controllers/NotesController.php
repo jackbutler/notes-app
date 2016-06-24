@@ -114,4 +114,30 @@ class NotesController extends Controller
         // Generate the comment HTML and return it.
         return response($comment->generateHtml());
     }
+
+    /**
+     * Deletes a note
+     *
+     * Verifies the user actioning the delete is the notes author,
+     * then deletes the note and redirects to the Notes Overview
+     * @return mixed
+     */
+    public function deleteNote($note_id) {
+        $note = Note::find($note_id);
+        $user = \Auth::user();
+
+        if(!$note) {
+            abort(404);
+        }
+
+        // Verify the note is being deleted by its author
+        if($user->id != $note->user_id) {
+            abort(403);
+        }
+
+        $note->delete();
+
+        \Flash::success("Note successfully deleted");
+        return redirect("/");
+    }
 }
